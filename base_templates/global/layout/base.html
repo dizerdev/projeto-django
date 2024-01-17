@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    {% include "components/head.html" %}
+
+    <title>{% block title %}{% endblock title %} Django-ecommerce</title>
+
+</head>
+<body>
+    {% include "components/header.html" %}
+
+    {% include "components/search.html" %}
+
+
+    <main class="main-content-container">
+        {% block content %}{% endblock content %}
+    </main>
+
+
+</body>
+</html>

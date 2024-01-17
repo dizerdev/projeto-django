@@ -1,18 +1,12 @@
-{% include "components/head.html" %}
-<body>
-    {% include "components/header.html" %}
+{% extends "global/layout/base.html" %}
 
-    {% include "components/search.html" %}
+{% block title %}Details |{% endblock title %}
 
 
-    <main class="main-content-container">
-        <div class="main-content main-content-detail container">
-            
-            {% include "components/product.html" %}
-            
-        </div>
-    </main>
-
-
-</body>
-</html>
+{% block content %}
+<div class="main-content main-content-detail container">
+    
+    {% include "components/product.html" %}
+    
+</div>
+{% endblock content %}

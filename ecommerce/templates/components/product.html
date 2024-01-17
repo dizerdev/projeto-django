@@ -1,42 +1,40 @@
 <div class="product product-list-item">
     <div class="product-image">
-        <img src="https://placehold.co/1440x1080/000000/269fe6.png" alt="temporario">
+        <img src="{{ product.cover.url }}" alt="temporario">
     </div>
     <div class="product-title-container">
-        <h2 class="product-title">Lorem ipsum dolor sit amet.</h2>
+        <h2 class="product-title">{{ product.title }}</h2>
     </div>
     <div class="product-seller">
         <span class="product-seller-item">
             <i class="fas fa-user"></i>
-            Lucia Valadão
+            {{ product.author.first_name }} {{ product.author.last_name }}
         </span>
         <br>
         <span class="product-seller-item">
             <i class="fas fa-calendar-alt"></i>
-            16/10/2021 às 11:21
+            {{ product.created_at|date:"d/m/Y"}} às {{ product.created_at|date:"H:i:s"}}
         </span>
         <br>
         <span class="product-seller-item">
             <a href="/products/category/amigurumi/">
                 <i class="fas fa-layer-group"></i>
-                <span>Amigurumis</span>
+                <span>{{ product.category.name }}</span>
             </a>
         </span>
     </div>
     <div class="product-content">
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni fugiat commodi ullam quas modi.
-            Ea cumque labore veniam, sequi corrupti quas beatae fuga alias quae, vero dicta accusamus
-            aliquam in!</p>
+        <p>{{ product.description }}</p>
     </div>
     
     <div class="product-meta-container">
         <div class="product-meta product-category">
             <h3 class="product-meta-title">
                 <i class="fa-solid fa-barcode"></i>
-                Amigurumis
+                {{ product.category.name }}
             </h3>
             <div class="product-meta-text">
-                Animal
+                {{ product.type }}
             </div>
         </div>
         <div class="product-meta product-price">
@@ -45,7 +43,7 @@
                 Preço
             </h3>
             <div class="product-meta-text">
-                R$ 59,99
+                R$ {{ product.sale_price}},99
             </div>
         </div>
     </div>

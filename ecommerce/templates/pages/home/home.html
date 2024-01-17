@@ -1,23 +1,16 @@
-{% include "components/head.html" %}
-<body>
-    {% include "components/header.html" %}
+{% extends "global/layout/base.html" %}
 
-    {% include "components/search.html" %}
+{% block title %}Home |{% endblock title %}
 
+{% block content %}
 
-    <main class="main-content-container">
-        <div class="main-content main-content-list container">
-            
-            {% include "components/product.html" %}
-            {% include "components/product.html" %}
-            {% include "components/product.html" %}
-            {% include "components/product.html" %}
-            {% include "components/product.html" %}
-            {% include "components/product.html" %}
-            
-        </div>
-    </main>
+<div class="main-content main-content-list container">
+    
+    {% for product in products %}
+        {% include "components/product.html" %}
+    {% endfor %}
 
+    
+</div>
 
-</body>
-</html>
+{% endblock content %}
