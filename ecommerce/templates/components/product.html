@@ -1,9 +1,15 @@
 <div class="product product-list-item">
     <div class="product-image">
-        <img src="{{ product.cover.url }}" alt="temporario">
+        <a href="{% url "ecommerce:details" product.id %}">
+            <img src="{{ product.cover.url }}" alt="temporario">
+        </a>
     </div>
     <div class="product-title-container">
-        <h2 class="product-title">{{ product.title }}</h2>
+        
+            <h2 class="product-title">
+                <a href="{% url "ecommerce:details" product.id %}">{{ product.title }}</a>
+            </h2>
+        
     </div>
     <div class="product-seller">
         <span class="product-seller-item">
@@ -48,10 +54,17 @@
         </div>
     </div>
 
+    {% if is_detail_page is not True  %}
     <footer class="product-footer">
-        <a class="product-read-more button button-dark button-full-width" href="/product/3/">
+        <a class="product-read-more button button-dark button-full-width" href="{% url "ecommerce:details" product.id %}">
             <i class="fas fa-eye"></i>
             <span>ver mais...</span>
         </a>
     </footer>
+    {% endif %}
+
+    {% if is_detail_page is True %}
+        <div class="ecommerce:details">{{ product.product_details }}</div>
+    {% endif %}
+
 </div>

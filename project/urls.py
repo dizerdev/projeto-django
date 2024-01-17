@@ -24,5 +24,5 @@ def my_view(request):
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('ecommerce.urls')),
-    path('test', include('ecommerce.urls')),
+    # path('test', include('ecommerce.urls'))
 ]
